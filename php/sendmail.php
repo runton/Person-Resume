@@ -16,13 +16,13 @@
 	//$user_id= $_COOKIE['login_id'];
 	$smtpserver = "smtp.126.com";//SMTP服务器
 	$smtpserverport =25;//SMTP服务器端口
-	$smtpusermail = "m18616907416@126.com";//SMTP服务器的用户邮箱
+	$smtpusermail = "你的邮箱地址";//SMTP服务器的用户邮箱
 	$smtpemailto = $_POST['sendTo'];//发送给谁
 	$mailtitle = $_POST['title'];//邮件主题
 	$mailfrom = $_POST['from'];
 	$mailcontent = $_POST['Message']."<br />邮件来自：".$mailfrom;//邮件内容
-	$smtpuser = "m18616907416";//SMTP服务器的用户帐号
-	$smtppass = "zb090720140";//SMTP服务器的用户密码
+	$smtpuser = "SMTP服务器用户帐号";//SMTP服务器的用户帐号
+	$smtppass = "SMTP服务器的用户密码";//SMTP服务器的用户密码
 	$mailtype = "TXT";//邮件格式（HTML/TXT）,TXT为文本邮件
 	//************************ 配置信息 ****************************
 	$smtp = new smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
