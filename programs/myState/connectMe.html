@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="zhangxiaobing">
+    <meta name="Keywords" content="Runton 社区">
+    <meta name="Description" content="runton 社区致力于为广大网页前端开发者提供技术交流和资源共享。">
+    <title>Runton 社区</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/connectme.css"/>
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=zEDq0aOK3moXr1Iu7FjBqb8XQEnMAD0w"></script>
+</head>
+<body>
+<!-- TODO 导航栏 -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#manu">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">Runton</a>
+        </div>
+        <div class="collapse navbar-collapse" id="manu">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="runton_art_list.html">技术分享</a></li>
+                <li><a href="runton_source.html">资源分享</a></li>
+                <li><a href="connectMe.html">联系我们</a></li>
+                <li class="dropdown">
+                    <div class="login-reg ">
+                        <a href="login.html" class="login">登录</a>|<a href="runton_register.html" class="">注册</a>
+                    </div>
+                    <div class="user_center ">
+                        <a href="#" class="user_bar dropdown-toggle" data-toggle="dropdown"></a>
+                        <!-- TODO 用户中心  -->
+                        <ul class="dropdown-menu">
+                            <li><a id="user" href="#">用户中心</a></li>
+                            <li><a class="Exit" href="#">退出</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- TODO 主体内容 -->
+<div class="container connectMe">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Contact me</h1>
+            <p>欢迎各位志同道合的朋友能够为这个网站提供宝贵的建议。</p>
+        </div>
+    </div>
+    <div class="row Email_info">
+        <div class="col-md-6">
+            <h1>发送邮件</h1>
+            <div>
+                <span>地址：</span><i>上海市嘉定区江桥镇</i>
+            </div>
+            <div>
+                <span>手机：</span><i>18616907416</i>
+            </div>
+            <div>
+                <span>邮箱：</span><i>949869293@qq.com</i>
+            </div>
+            <div>
+                <span>QQ：</span><i>949869293</i>
+            </div>
+            <div>
+                <span>微信：</span><i>949869293</i>
+            </div>
+            <div>
+                <span>地图导航：</span><div id="allmap"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form id="connectMe" action="php/sendmail.php" method="post">
+                <div class="form-group">
+                    <label for="title">主题:</label><input id="title" type="text" name="title" placeholder="邮件主题"/>
+                </div>
+                <div class="form-group">
+                    <label for="sendTo">收件人:</label><input id="sendTo" name="sendTo" type="text" value="949869293@qq.com" readonly/>
+                </div>
+                <div class="form-group">
+                    <label for="Message">内容:</label><textarea name="Message" id="Message" cols="30" rows="7"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="发送"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row follow">
+        <!--<h1>Follow me</h1>-->
+        <!--<div>-->
+            <!--<ul class="list-unstyled">-->
+                <!--<li><a href=""></a></li>-->
+                <!--<li><a href=""></a></li>-->
+                <!--<li><a href=""></a></li>-->
+                <!--<li><a href=""></a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+<!-- TODO 页脚部分 -->
+<footer>
+    <!-- 关于 、最近评论、 最近修改、最近关注 -->
+    <div class="row1">
+        <div class="container">
+            <div class="col-md-3 col-sm-6">
+                <ul class="list-unstyled">
+                    <li><h4>联系方式</h4></li>
+                    <li><p>联系Runton管理员方式 </p></li>
+                    <li>地址：上海市</li>
+                    <li>电话：(0)18616907416</li>
+                    <li>邮箱：949869293@qq.com</li>
+                </ul>
+                <ul class="contact-icon list-unstyled">
+                    <li><a class="qq_icon" href=""></a></li>
+                    <li><a class="weixin_icon" href=""></a></li>
+                    <li><a class="qqblog_icon" href=""></a></li>
+                    <li><a class="sinablog_icon" href=""></a></li>
+                    <div style="clear:both;"></div>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <ul class="last_adjust list-unstyled">
+                    <li><h4>最新文章</h4></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <ul class=" last-comment list-unstyled">
+                    <li><h4>最新评论</h4></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <ul class="list-unstyled">
+                    <li><h4>最新成员</h4></li>
+                </ul>
+                <ul class="last-member list-unstyled">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row2">
+        <div class="container">
+            <ul class="runton-info list-unstyled">
+                <li>Copyright © 2015-2016 云腾社区  runton.com.cn All Rights Reserved.</li>
+                <li> 备案号：皖ICP备16003202号-1</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.sinaEmotion.min.js"></script>
+<script src="js/common.min.js"></script>
+<script src="js/connectMe.min.js"></script>
+</body>
+</html>

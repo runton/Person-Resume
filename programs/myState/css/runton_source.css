@@ -1,0 +1,159 @@
+/* *************** 主体框********************/
+section{
+    margin-top:46px;
+}
+section .container{
+    background-color:white;
+}
+/* *************** 左侧标签********************/
+section .col-md-9 .source-tabs{
+    height:auto;
+    margin-top:20px;
+    margin-bottom: 10px;
+}
+section .col-md-9 .source-tabs ul li{
+    float:left;
+    width:10%;
+    min-width: 63px;
+}
+section .col-md-9 .row{
+    margin:0;
+}
+    /* *************** 右侧标签条********************/
+section div.col-md-3 div.Info_item{
+    height:30px;
+    border-bottom:1px solid #1ABC9C;
+}
+section div.col-md-3 .Info_item span{
+    float:left;
+    width:3px;
+    height:100%;
+    background-color:#1ABC9C;
+}
+section div.col-md-3  .Info_item  p{
+    line-height:30px;
+    font-weight: 900;
+    height:100%;
+    margin:0;
+    padding-left:3px;
+    float:left;
+}
+/****************** 订阅信息**********************/
+.col-md-3 .row{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.col-md-3 .row .subscribe-group{
+    width:268px;
+    margin:0 auto;
+}
+.col-md-3 .row dl{
+    width:57px;
+    min-height:60px;
+    margin:0 5px;
+    background-color:#E7E7E7;
+    float:left;
+}
+.col-md-3 .row dl dd{
+    height:30px;
+    text-align: center;
+    line-height: 30px;
+}
+/******************站内搜索**********************/
+div.find form{
+    margin:10px 0;
+}
+/******************资源分享**********************/
+section .container .col-md-3 .sourceShare form{
+    border:1px solid #ddd;
+    border-radius:4px;
+    margin-top:5px;
+    padding:10px 5px;
+}
+section .container .col-md-3 .sourceShare form .form-group{
+    margin-bottom:5px;
+}
+section .container .col-md-3 .sourceShare form .form-group:last-child{
+    text-align: center;
+}
+/*******************资源类型和热点  搜索词*********************/
+.col-md-3 .row .source-type , .col-md-3 .row .word{
+    margin:10px 0;
+}
+.col-md-3 .row .source-type li a{
+    color:white;
+    text-decoration: none;
+}
+.col-md-3 .row .source-type li{
+    float:left;
+    width:45%;
+    height:30px;
+    line-height: 30px;
+
+    text-align:center;
+    border-bottom:1px solid #ddd;
+    margin:3px 5px;
+    background-color:#17BC9E ;
+}
+.col-md-3 .row .source-type li:hover{
+    background-color:#3795DB;
+    cursor: pointer;
+    color:white;
+
+}
+.col-md-3 .row .word li{
+    float:left;
+    margin:3px 5px;
+    padding:3px 5px;
+    height:30px;
+    text-align: center;
+    background-color: #ddd;
+}
+.col-md-3 .row .word li:hover{
+    background-color:#3795DB;
+    cursor:pointer;
+}
+/*******************商品链接*********************/
+.col-md-3 .row .shop_link{
+    margin:10px 0px;
+    margin-left:5px;
+}
+.col-md-3 .row .shop_link li{
+    width:125px;
+    height:125px;
+    margin:5px;
+    float:left;
+    background-color: #aaa;
+}
+/*****************************************************/
+/*****************************************************/
+/*******************文章 、资源列表部分*********************/
+#all .media,#refer .media,#doc .media,#soft .media,#example .media,#pulguns .media,#models .media,#other .media{
+    margin:10px 0;
+    border:1px solid #ddd;
+    padding:5px 5px;
+}
+#all .media hr{
+    margin:2px 0;
+}
+#all .media .media-body p{
+    margin-bottom:5px;
+    font-size:12px;
+}
+#all .media .media-body h4:hover{
+    color:red;
+    background-color: #eee;
+    cursor:pointer;
+}
+#all .media .media-item img ,#all .media .media-item span{
+    float:left;
+    margin:3px 5px;
+}
+#all .media .media-item img{
+    width:20px;
+    height:20px;
+}
+#all .media .media-item p{
+    float:right;
+    margin-bottom:0;
+}

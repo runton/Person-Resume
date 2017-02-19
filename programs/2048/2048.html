@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>标题</title>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="2048.css"/>
+  </head>
+  <body>
+    <p>
+      Top:<span id="top">0</span><br>
+      Score:<span id="score">0</span>
+    </p>
+    <!--创建一个id为gridPaned的div
+      再在div下创建16个子div，每个div的id为g00，class为grid:
+      div#gridPanel>div#g00.grid*16
+    -->
+    <div id="gridPanel">
+    </div>
+    <div id="gameOver">
+      <div><!--满屏半透明背景--></div>
+      <p><!--前景对话框-->
+        Game Over<br>
+        Score:<span id="fScore"></span>
+        <br>
+        <a class="btn" onclick="game.start()">Try again</a>
+      </p>
+    </div>
+    <script src="2048.js"></script>
+  </body>
+</html>

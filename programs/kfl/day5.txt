@@ -1,0 +1,157 @@
+1、ng中如何传参？？
+①明确接收方
+login，将用户姓名 传递给 main
+发送：login
+接收：main
+
+②约定
+接收方接收的名称
+userName
+
+/main/web1605
+
+③读取参数
+$routeParams
+console.log($routeParams.userName)
+
+传参的不同方式：
+①直接修改地址栏的参数
+http://localhost:8888/day5/index.html#/main/12345
+
+②超链接
+<a href="#/main/kkk">
+
+③js
+$location.path('/main/huyadshfhds');
+
+面试：
+控制器之间的通信？？
+服务
+控制器之间的嵌套
+$rootScope
+...
+
+小技巧：将通用的功能，放在父控制器中。
+
+3、ng-include
+
+功能：使用ngInclude指令，完成代码片段的引入
+用法：<div ng-include="'tpl/......'"></div>
+
+<div ng-include="'tpl/include/header.html'"></div>
+
+
+第一步：搭建框架
+1、创建项目，添加css、js、img、tpl文件夹，添加必须引用的css、js文件，添加自定义的css、js文件以及img图片，并创建完整的引导页面kaifanla.html；
+
+2、编写kaifanla.html文件：
+  定义模块ng-app=”kaifanla”
+  引入bootstrap.css以及自定义的css文件
+  定义用于替换模板的视图
+  引入angular.js angular-route.js文件，并引入自定义的js文件。
+
+3、添加模板文件：添加 start/main/detail/order/myorder页面，每个页面中删掉原有内容，添加一个文字；
+
+4、编写 kaifanla.js 文件
+  定义各自的控制器
+  定义路由：为所有模板定义路由，默认跳转到start
+5、测试：跳转是否正常，是否有错误
+
+
+字体图标：http://www.runoob.com/bootstrap/bootstrap-glyphicons.html
+
+步骤2：编写静态页面
+
+每日一练：完成所有的静态页面的编写。
+
+start.html
+
+main.html
+
+detail.html
+
+order.html
+
+myorder.html
+
+
+
+步骤3：php页面的编写：
+
+
+data/dish_getbykw.php：根据搜索关键字返回菜品列表
+
+
+data/dish_getbyid.php：根据ID返回一道菜全部详情
+
+data/order_add.php：接收订单信息，保存订单
+获取各个参数（用户名、性别。。），解析，判断参数是否全部传过来，如果没有，返回空数组；
+
+$result = insert 
+if($result)
+{
+	自增id返回
+}
+else
+{
+	error
+	$sql
+}
+
+
+data/order_getbyphone.php ：根据电话号码返回订单列表
+
+
+步骤4：结合ng $http
+
+
+优化main.html
+
+$scope.dishList
+
+
+$http.get('data/dish_getbypage.php?start=0').success(function(data){})
+
+点击加载更多按钮：
+$http.get('data/dish_getbypage.php?start='+).success(function(data){})
+
+
+$scope.$watch('',function(){
+
+$http dish_getbykw.php?kw=
+})
+
+
+②实现详情页
+
+声明、指定控制器
+配置接收参数的路由
+$routeParams
+
+③表单提交页
+
+声明、指定控制器
+配置接收参数的路由
+$routeParams
+
+ng-show/ng-hide 表单以及下单结果
+
+每日一练： 
+
+完善开发啦项目的各个页面
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

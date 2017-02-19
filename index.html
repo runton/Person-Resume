@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="resumeApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人简历</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/resume.css"/>
+    <link rel="stylesheet" type="text/css" href="css/process.css">
+    <!-- TODO 表情包样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.sinaEmotion.css" />
+    <script src="js/hongru.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=zEDq0aOK3moXr1Iu7FjBqb8XQEnMAD0w"></script>
+</head>
+<body ng-controller="parentCtrl">
+    <div class="myHeader"></div>
+
+    <div ng-view class="wrapBox" id="wrapBox"></div>
+
+    <div ng-include="'tpl/include/footer.html'"></div>
+
+    <script src="js/script/bootstrap.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script type="text/javascript" src="js/jquery.sinaEmotion.min.js"></script>
+    <script src="js/script/app.js"></script>
+    <script src="js/script/myDirective.js"></script>
+</body>
+</html>

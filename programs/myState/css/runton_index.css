@@ -1,0 +1,118 @@
+/**
+    TODO 主体模块
+**/
+.main{
+    background-color: white;
+    min-height:800px;
+    overflow:hidden;
+}
+aside{
+    position: fixed;
+    left:0;
+    top:100px;
+    width:200px;
+    height:90px;
+    background-color:#d6e9c6;
+}
+/***************TODO 首页搜索条******************/
+.search-box{
+    height:200px;
+    background-color:white;
+}
+.search-box>div.Search-item{
+    width:100%;
+    margin-top:55px;
+}
+.search-box>div.Search-item .searchImg img{
+    width:91px;
+    height:40px;
+    margin:10px auto;
+}
+.search-box>div.Search-item>div>form{
+    width:400px;
+    margin:0 auto;
+}
+@media screen and (max-width: 420px){
+    .search-box>div.Search-item>div>form{
+        width:80%;
+    }
+}
+div.Search-item .input-group input,div.Search-item .input-group button{
+    height:40px;
+}
+div.Search-item .input-group button{
+    background-color: #0078CA;
+    border-color: #0078CA;
+}
+.search-box div.Search-item div form #searchkey{
+    position:relative;
+}
+.search-box div.Search-item div form #suggestion_div{
+    position:absolute;
+}
+/*************************TODO 首页内容栏****************************/
+.mid-link{
+    background-color:#34495E;
+    height:auto;
+}
+.mid-link .row{
+    margin:0;
+    padding:80px 20px;
+}
+.mid-link #myLink .carousel-control{
+    width:40px;
+}
+.mid-link #myLink .carousel-control span{
+    display:block;
+    margin-top:250px;
+    font-size:40px;
+}
+.mid-link .link{
+   margin:0 auto;
+   width:1080px;
+}
+@media screen and (max-device-width: 540px) {
+    .mid-link .link{
+        width:270px;
+    }
+    .mid-link #myLink .carousel-control span{
+        margin-top:810px;
+    }
+}
+@media screen and (max-device-width: 1080px) and (min-device-width: 540px) {
+    .mid-link .link{
+        width:540px;
+    }
+    .mid-link #myLink .carousel-control span{
+        margin-top:440px;
+    }
+}
+.mid-link .link li{
+    float:left;
+    margin:10px 10px;
+    background-color:#ddd;
+    position: relative;
+    overflow:hidden;
+}
+.mid-link .link li a img{
+
+}
+
+.mid-link .link li .stateBox{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    color:white;
+    background-color: #020000;
+    filter:alpha(Opacity=80);
+    -moz-opacity:0.8;
+    opacity: 0.8;
+    text-align:center;
+    bottom:-168px;
+}
+.mid-link .link li .stateBox h3{
+    margin: 5px auto;
+}
+
+

@@ -1,0 +1,92 @@
+
+<!-- 作品展示 -->
+<div class="box">
+    <div id="bg_contact" class="bg-contact" style="height:204px">
+        <div class="canv_text">
+            <h1>Works Show</h1>
+            <p>个人原创、练习以及参与的作品展示。</p>
+        </div>
+    </div>
+
+    <div class="works_content container">
+        <div class="myFilter"></div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="portfolio-items isotopeWrapper clearfix">
+                    <div ng-if="type=='all'">
+                        <div ng-repeat="work in worklists track by $index">
+                            <article class="col-sm-4 isotopeItem webdesign">
+                                <div class="portfolio-item">
+                                    <img ng-src="{{work.pic}}" alt=""/>
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a  href="#/work_detail/{{work.wid}}" class="fancybox">
+                                                <h5>{{work.title}}</h5>
+                                                <i class="fa fa-link fa-2x"></i>
+                                                <span>详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div ng-if="type=='original'">
+                        <div ng-repeat="work in worklists | filter: {'type':'原创'} track by $index">
+                            <article class="col-sm-4 isotopeItem webdesign">
+                                <div class="portfolio-item">
+                                    <img ng-src="{{work.pic}}" alt=""/>
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a  href="#/work_detail/{{work.wid}}" class="fancybox">
+                                                <h5>{{work.title}}</h5>
+                                                <i class="fa fa-link fa-2x"></i>
+                                                <span>详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div ng-if="type=='partake'">
+                        <div ng-repeat="work in worklists | filter: {'type':'参与'} track by $index">
+                            <article class="col-sm-4 isotopeItem webdesign">
+                                <div class="portfolio-item">
+                                    <img ng-src="{{work.pic}}" alt=""/>
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a  href="#/work_detail/{{work.wid}}" class="fancybox">
+                                                <h5>{{work.title}}</h5>
+                                                <i class="fa fa-link fa-2x"></i>
+                                                <span>详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div ng-if="type=='practice'">
+                        <div ng-repeat="work in worklists | filter: {'type':'练习'} track by $index">
+                            <article class="col-sm-4 isotopeItem webdesign">
+                                <div class="portfolio-item">
+                                    <img ng-src="{{work.pic}}" alt=""/>
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a  href="#/work_detail/{{work.wid}}" class="fancybox">
+                                                <h5>{{work.title}}</h5>
+                                                <i class="fa fa-link fa-2x"></i>
+                                                <span>详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

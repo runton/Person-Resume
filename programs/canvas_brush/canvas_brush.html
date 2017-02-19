@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas版本的画图工具</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #board {
+            background-color: #9d9d9d;
+            border: 1px solid #9d9d9d;
+            margin-top: 20px;
+            padding-left: 10px;
+            padding-top: 10px;
+            position: relative;
+        }
+        #canvas {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav" class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">canvas版画图工具</a>
+        </div>
+    </nav>
+    <div id="tools" class="container-fluid">
+        <fieldset id="tool" class="col-md-3">
+            <legend>工具</legend>
+            <button id="pencil" class="btn btn-default col-md-3" style="background-color:#9d9d9d;color:#ffffff">画笔</button>
+            <button id="word" class="btn btn-default col-md-3">文字</button>
+            <button id="eraser" class="btn btn-default col-md-3">橡皮擦</button>
+            <button id="trash" class="btn btn-default col-md-3">清除</button>
+        </fieldset>
+        <fieldset id="graphic" class="col-md-3">
+            <legend>图形</legend>
+            <button id="line" class="btn btn-default col-md-3">直线</button>
+            <button id="rect" class="btn btn-default col-md-3">矩形</button>
+            <button id="circle" class="btn btn-default col-md-3">圆形</button>
+            <button id="triangle" class="btn btn-default col-md-3">三角</button>
+        </fieldset>
+        <fieldset id="color" class="col-md-3">
+            <legend>颜色</legend>
+            <button id="white" class="btn btn-default col-md-3">白色</button>
+            <button id="black" class="btn btn-default col-md-3">黑色</button>
+            <button id="red" class="btn btn-default col-md-3">红色</button>
+            <button id="yellow" class="btn btn-default col-md-3">黄色</button>
+            <button id="blue" class="btn btn-default col-md-3">蓝色</button>
+            <button id="green" class="btn btn-default col-md-3">绿色</button>
+            <button id="orange" class="btn btn-default col-md-3">橙色</button>
+            <button id="purple" class="btn btn-default col-md-3">紫色</button>
+        </fieldset>
+        <fieldset id="setting" class="col-md-3">
+            <legend>设置</legend>
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                    <button disabled="disabled" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        字体大小
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="fontsize" class="dropdown-menu">
+                        <li><a id="8px" href="#">8px</a></li>
+                        <li><a id="10px" href="#">10px</a></li>
+                        <li><a id="12px" href="#">12px</a></li>
+                        <li><a id="14px" href="#">14px</a></li>
+                        <li><a id="16px" href="#">16px</a></li>
+                        <li><a id="18px" href="#">18px</a></li>
+                        <li><a id="20px" href="#">20px</a></li>
+                        <li><a id="22px" href="#">22px</a></li>
+                        <li><a id="24px" href="#">24px</a></li>
+                        <li><a id="26px" href="#">26px</a></li>
+                        <li><a id="28px" href="#">28px</a></li>
+                        <li><a id="30px" href="#">30px</a></li>
+                        <li><a id="32px" href="#">32px</a></li>
+                        <li><a id="34px" href="#">34px</a></li>
+                        <li><a id="36px" href="#">36px</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button disabled="disabled" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        字体样式
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="fontfamily" class="dropdown-menu">
+                        <li><a id="宋体" href="#">宋体</a></li>
+                        <li><a id="微软雅黑" href="#">微软雅黑</a></li>
+                        <li><a id="仿宋" href="#">仿宋</a></li>
+                        <li><a id="Arial" href="#">Arial</a></li>
+                        <li><a id="Consolas" href="#">Consolas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button id="bold" disabled="disabled" class="btn btn-default col-md-6">加粗</button>
+            <button id="italic" disabled="disabled" class="btn btn-default col-md-6">斜体</button>
+        </fieldset>
+    </div>
+    <div id="board">
+        <canvas id="canvas" width="1024px" height="768px"></canvas>
+    </div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    context.strokeStyle = "black";
+    // 初始化功能
+    var tools = {
+        tool : "pencil",
+        graphic : "",
+        color : ""
+    }
+    // 鼠标操作开关
+    var flag = false;
+    // 初始化起点坐标值及保存点
+    var x, y,url = "";
+    // 初始化字体属性
+    var fontsize = "8px",fontfamily = "Arial",fontweight = "",fontstyle = "";
+    // 初始化文本输入框
+    var fontTip = $("<textarea rows='3' cols='20' style='background:transparent;position:absolute;display:none;'></textarea>");
+    $("#board").append(fontTip);
+    // 按钮点击逻辑
+    $("fieldset").children("button:not('#bold,#italic')").click(function(){
+        // 按钮选择切换效果
+        $(this).attr("style","background-color:#9d9d9d;color:#ffffff");
+        $(this).siblings("button").removeAttr("style");
+        // 清除功能
+        if($(this).attr("id")=="trash"){
+            context.clearRect(0,0,canvas.width,canvas.height);
+        }
+        // 判断用户选择的功能
+        var command = $(this).parent("fieldset").attr("id");
+        switch (command) {
+            case "tool" :
+                tools.tool = $(this).attr("id");
+                // 如果选择工具,默认不选择任何图形
+                $(this).parent("fieldset").siblings().children("button").removeAttr("style");
+                tools.graphic = "";
+
+                if(tools.tool!="pencil"){
+                    $(this).parent("fieldset").next().children("button").attr("disabled","disabled");
+                }else{
+                    $(this).parent("fieldset").next().children("button").removeAttr("disabled");
+                }
+                if(tools.tool!="word"){
+                    $(this).parent("fieldset").siblings("#setting").find("button").attr("disabled","disabled");
+                }else{
+                    $(this).parent("fieldset").siblings("#setting").find("button").removeAttr("disabled");
+                }
+                break;
+            case "graphic" :
+                tools.graphic = $(this).attr("id");
+                $("#white").attr("style","background-color:#9d9d9d;color:#ffffff");
+                break;
+            case "color" :
+                tools.color = $(this).attr("id");
+                context.fillStyle = $(this).attr("id");
+                break;
+        }
+    });
+    // 选择字体属性
+    $("a,#bold,#italic").click(function(event){
+        event.preventDefault();
+
+        var val = $(this).attr("id");
+
+        switch ($(this).parents("ul").attr("id")) {
+            case "fontsize" :
+                fontsize = val;
+                break;
+            case "fontfamily" :
+                fontfamily = val;
+                break;
+        }
+        switch (val){
+            case "bold" :
+                if(fontweight==""){
+                    fontweight = "bold ";
+                    $(this).attr("style","background-color:#9d9d9d;color:#ffffff");
+                }else{
+                    fontweight = "";
+                    $(this).removeAttr("style");
+                }
+                break;
+            case "italic" :
+                if(fontstyle==""){
+                    fontstyle = "italic ";
+                    $(this).attr("style","background-color:#9d9d9d;color:#ffffff");
+                }else{
+                    fontstyle = "";
+                    $(this).removeAttr("style");
+                }
+                break;
+        }
+    });
+
+    $("canvas").mousedown(function(event){
+        // 绘制开始
+        flag = true;
+        // 获取起点坐标值
+        x = event.offsetX;
+        y = event.offsetY;
+    }).mouseup(function(event){
+        // 绘制完毕
+        flag = false;
+        url = $("canvas")[0].toDataURL();
+        fontTip.focus();
+    }).mousemove(function(event){
+        if(tools.tool=="pencil"&&tools.graphic==""){
+            drawPencil(event);
+        }else if(tools.tool=="pencil"&&tools.graphic=="line"){
+            drawLine(event);
+        }else if(tools.tool=="pencil"&&tools.graphic=="rect"){
+            drawRect(event);
+        }else if(tools.tool=="pencil"&&tools.graphic=="circle"){
+            drawCircle(event);
+        }else if(tools.tool=="pencil"&&tools.graphic=="triangle"){
+            drawTriangle(event);
+        }else if(tools.tool=="eraser"){
+            clearDraw(event);
+        }else if(tools.tool=="word"){
+            inputWord(event);
+        }
+    });
+    // 绘制画笔
+    function drawPencil(event){
+        if(flag){
+            context.lineTo(event.offsetX,event.offsetY);
+            context.stroke();
+        }else{
+            context.beginPath();
+            context.moveTo(event.offsetX,event.offsetY);
+        }
+    }
+    // 绘制直线
+    function drawLine(event){
+        if(flag){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            // 载入上次保存点
+            loadImg();
+
+            context.beginPath();
+            context.moveTo(x,y);
+            context.lineTo(event.offsetX,event.offsetY);
+            context.stroke();
+        }
+    }
+    // 绘制矩形
+    function drawRect(event){
+        if(flag){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            // 载入上次保存点
+            loadImg();
+
+            context.beginPath();
+            context.rect(x,y,event.offsetX-x,event.offsetY-y);
+            if(tools.color!=""){
+                context.fill();
+                context.stroke();
+            }else{
+                context.stroke();
+            }
+        }
+    }
+    // 绘制圆形
+    function drawCircle(event){
+        if(flag){
+            var rx = (event.offsetX-x)/2;
+            var ry = (event.offsetY-y)/2;
+            var r = Math.sqrt(rx*rx+ry*ry);
+
+            context.clearRect(0,0,canvas.width,canvas.height);
+            // 载入上次保存点
+            loadImg();
+
+            context.beginPath();
+            context.arc(rx+x,ry+y,r,0,Math.PI*2);
+            if(tools.color!=""){
+                context.fill();
+                context.stroke();
+            }else{
+                context.stroke();
+            }
+        }
+    }
+    // 绘制三角形
+    function drawTriangle(event){
+        if(flag){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            // 载入上次保存点
+            loadImg();
+
+            context.beginPath();
+            context.moveTo(x,y);
+            context.lineTo(event.offsetX,event.offsetY);
+            context.lineTo(x,event.offsetY);
+            context.lineTo(x,y);
+            if(tools.color!=""){
+                context.fill();
+                context.stroke();
+            }else{
+                context.stroke();
+            }
+        }
+    }
+    // 文字输入
+    function inputWord(event){
+        if(flag){
+            fontTip.css({
+                top : y,
+                left : x,
+                width : event.offsetX - x,
+                height : event.offsetY - y,
+                fontSize : fontsize,
+                fontFamily : fontfamily,
+                color : tools.color,
+                fontStyle : fontstyle,
+                fontWeight : fontweight
+            }).show();
+        }
+    }
+    // 绘制文字
+    function drawWord(event){
+        var words = fontTip.val().trim();
+        if(fontTip.css("display")!="none"&&words){
+            var offset1 = $("#canvas").offset();
+            var offset2 = fontTip.offset();
+
+            context.fillStyle = tools.color;
+            context.font = fontstyle+fontweight+fontsize+" "+fontfamily;
+
+            if(isNaN(fontsize)){
+                var size = Number(fontsize.substring(0,fontsize.length-2));
+            }
+
+            context.fillText(words,offset2.left-offset1.left+2,offset2.top-offset1.top+size+3);
+            fontTip.val("");
+        }
+        fontTip.hide();
+    }
+    fontTip.blur(drawWord);
+    // 橡皮擦
+    function clearDraw(event){
+        if(flag){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            // 载入上次保存点
+            loadImg();
+
+            context.lineWidth = 10;
+            context.strokeStyle = "white";
+            context.lineTo(event.offsetX,event.offsetY);
+            context.stroke();
+        }else{
+            context.beginPath();
+            context.moveTo(event.offsetX,event.offsetY);
+        }
+    }
+
+    function loadImg(){
+        var img = new Image();
+        img.src = url;
+        context.drawImage(img,0,0,canvas.width,canvas.height);
+    }
+
+</script>
+</html>

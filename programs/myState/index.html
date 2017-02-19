@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!--TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="zhangxiaobing">
+    <meta name="Keywords" content="Runton 社区 ">
+    <meta name="Description" content="runton 社区致力于为广大网页前端开发者提供技术交流和资源共享。">
+    <meta property="wb:webmaster" content="bce7007c041e3b01" />
+    <title>Runton 社区</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/runton_index.css"/>
+    <!--
+        TODO html5shiv 专门兼容IE6/7/8版本的html5不提供的新标签
+        TODO respond 专门兼容IE6/7/8版本的css3不提供的media
+    -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#manu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Runton</a>
+            </div>
+            <div class="collapse navbar-collapse" id="manu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="runton_art_list.html">技术分享</a></li>
+                    <li><a href="runton_source.html">资源分享</a></li>
+                    <li><a href="connectMe.html">联系我们</a></li>
+                    <li class="dropdown">
+                        <div class="login-reg ">
+                            <a href="login.html" class="login">登录</a>|<a href="runton_register.html" class="">注册</a>
+                        </div>
+                        <div class="user_center ">
+                            <a href="#" class="user_bar dropdown-toggle" data-toggle="dropdown"></a>
+                            <!-- TODO 用户中心  -->
+                            <ul class="dropdown-menu">
+                                <li><a id="user" href="#">用户中心</a></li>
+                                <li><a class="Exit" href="#">退出</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- TODO 页面主体部分 -->
+    <div class="main container">
+        <div class="search-box row">
+            <!--TODO 搜索-->
+            <div class="Search-item">
+                <div class="searchImg">
+                    <img class="img-responsive" src="imgs/5644a4015f681b192f43d02e95bee21d.png"/>
+                </div>
+                <div>
+                    <form id="search" action="//www.baidu.com/s"  target="_blank" method="get" enctype="application/x-www-form-urlencoded">
+                        <div>
+                            <div class="input-group">
+                                <input id="searchkey" type="text" class="form-control" name="word" autofocus autocomplete="off"/>
+                                <div id="suggestion_div">
+                                    <ul id="suggestions_ul"></ul>
+                                </div>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="button">搜 索</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="radio" name="searchor" id="baidu" checked value="baidu"/><label for="baidu">百度</label>
+                            <input type="radio" name="searchor" id="bing" value="bing"/><label for="bing" >必应</label>
+                            <input type="radio" name="searchor" id="Google"  value="google"/><label for="Google">谷歌</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- 内容栏 -->
+        <div  class="middle-context row">
+            <div class="mid-link">
+                <div id="myLink" class="row carousel slide" >
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myLink" data-slide-to="0" data-inteval="60000" ></li>
+                        <li data-target="#myLink" data-slide-to="1" data-inteval="60000" class="active"></li>
+                        <li data-target="#myLink" data-slide-to="2" data-inteval="60000"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div id="mycarousel" class="carousel-inner">
+                        <div class="item active">
+                            <ul class="link list-unstyled">
+                                <li>
+                                    <a href="//www.w3school.com.cn/"><img src="imgs/linkImg/w3school.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>W3school</h3>
+                                        <p>提供各类编程语言教程</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="//www.runoob.com/"><img  src="imgs/linkImg/Runoobcom.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>RUNOOB</h3>
+                                        <p>提供各类编程语言手册</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.51html5.com/"><img src="imgs/linkImg/HTML5.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>HTML5技术网</h3>
+                                        <p>HTML5综合类技术网站</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://huaban.com/"><img src="imgs/linkImg/huaban.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>花瓣网</h3>
+                                        <p>提供精美的网页设计</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.jq22.com/"><img src="imgs/linkImg/jquery.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>jq22</h3>
+                                        <p>提供jQuery插件库</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.bootcdn.cn/"><img src="imgs/linkImg/j0001.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>BootCDN</h3>
+                                        <p>稳定、快速、免费的开源项目 CDN 服务</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.bootcss.com/p/lesscss/"><img  src="imgs/linkImg/less.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>Bootcss</h3>
+                                        <p>动态 样式 语言Less站点</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://jquery.com/"><img  src="imgs/linkImg/jquery.en.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>jQuery</h3>
+                                        <p>jQuery官方网站</p>
+                                    </div>
+                                </li>
+                                <div style="clear:both;"></div>
+                            </ul>
+                        </div>
+                        <div class="item ">
+                            <ul class="link list-unstyled">
+                                <li>
+                                    <a href="http://www.bootcss.com/p/google-bootstrap/"><img src="imgs/linkImg/g0002.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>Bootstrap</h3>
+                                        <p>Sleek,intuitive,and powerful front-end framework for faster and easier web development.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.bootcss.com/p/websafecolors/"><img  src="imgs/linkImg/webcolor.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>bootcss</h3>
+                                        <p>WEB安全色</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.gruntjs.net/"><img  src="imgs/linkImg/grunt0001.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>GRUNT</h3>
+                                        <p>grunt.js插件</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://codeguide.bootcss.com/"><img  src="imgs/linkImg/b0002.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>codeguide</h3>
+                                        <p>编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.bootcss.com/p/jquery-ui-bootstrap/"><img  src="imgs/linkImg/jqueryui.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>jQuery UI Bootstrap</h3>
+                                        <p>基于Bootstrap样式的 jQuery UI 控件</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.bootcss.com/p/font-awesome/"><img  src="imgs/linkImg/font0001.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>Font Awesome</h3>
+                                        <p>完美的图标字体只为Bootstrap设计</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.bootcss.com/p/cikonss/"><img  src="imgs/linkImg/cikonss0001.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>CIKONSS</h3>
+                                        <p>纯CSS实现的响应式Icon - 兼容IE8+</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://cnodejs.org/"><img  src="imgs/linkImg/node.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>cnodejs.org</h3>
+                                        <p>Node.js专业中文社区</p>
+                                    </div>
+                                </li>
+                                <div style="clear:both;"></div>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <ul class="link list-unstyled">
+                                <li>
+                                    <a href="http://nodeapi.ucdok.com/#/api/"><img  src="imgs/linkImg/chart0001.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>Node.js API 中文版</h3>
+                                        <p>Node.js v4.2.4 手册 & 文档</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://nodejs.cn/"><img src="imgs/linkImg/node.zh.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>nodejs.cn</h3>
+                                        <p>Node.js中文下载地址</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="https://nodejs.org/en/"><img src="imgs/linkImg/node.js.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>nodejs.org</h3>
+                                        <p>Node.js英文文下载地址</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.yiibai.com/nodejs/"><img src="imgs/linkImg/yibai.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>易百网</h3>
+                                        <p>Node.js教程</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="https://threejs.org/"><img  src="imgs/linkImg/three.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>threejs</h3>
+                                        <p>3D图形插件</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.javascriptcn.com/"><img  src="imgs/linkImg/javascript_zh.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>javascript中文网</h3>
+                                        <p>提供各类javascript电子书文档资料</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="http://www.oschina.net/project/lang/28/javascript"><img src="imgs/linkImg/oschina.net.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>中国开源社区</h3>
+                                        <p>提供各类开源项目</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="https://regexper.com/"><img src="imgs/linkImg/regexper.jpg"/></a>
+                                    <div class="stateBox">
+                                        <h3>Regexper</h3>
+                                        <p>Regexper正则表达式</p>
+                                    </div>
+                                </li>
+                                <div style="clear:both;"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="carousel-control left" href="#myLink"
+                       data-slide="prev"><span>&lsaquo;</span>
+                    </a>
+                    <a class="carousel-control right" href="#myLink"
+                       data-slide="next"><span>&rsaquo;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- -->
+        <div class="autoHeight"></div>
+    </div>
+    <!-- TODO 页脚部分 -->
+    <footer>
+        <!-- 关于 、最近评论、 最近修改、最近关注 -->
+        <div class="row1">
+            <div class="container">
+                <div class="col-md-3 col-sm-6">
+                    <ul class="list-unstyled">
+                        <li><h4>联系方式</h4></li>
+                        <li><p>联系Runton管理员方式</p></li>
+                        <li>地址：上海市</li>
+                        <li>电话：(0)18616907416</li>
+                        <li>邮箱：949869293@qq.com</li>
+                    </ul>
+                    <ul class="contact-icon list-unstyled">
+                        <li><a class="qq_icon" href=""></a></li>
+                        <li><a class="weixin_icon" href=""></a></li>
+                        <li><a class="qqblog_icon" href=""></a></li>
+                        <li><a class="sinablog_icon" href=""></a></li>
+                        <div style="clear:both;"></div>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <ul class="last_adjust list-unstyled">
+                        <li><h4>最新文章</h4></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <ul class=" last-comment list-unstyled">
+                        <li><h4>最新评论</h4></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <ul class="list-unstyled">
+                        <li><h4>最新成员</h4></li>
+                    </ul>
+                    <ul class="last-member list-unstyled">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="container">
+                <ul class="runton-info list-unstyled">
+                    <li>Copyright © 2015-2016 云腾社区  runton.com.cn All Rights Reserved.</li>
+                    <li> 备案号：皖ICP备16003202号-1</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.sinaEmotion.min.js"></script>
+    <script src="js/common.min.js"></script>
+    <script src="js/runton_index.min.js"></script>
+</body>
+</html>

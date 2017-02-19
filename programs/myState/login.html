@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>登录插件</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            margin: 0;
+            background: #002B5A;
+            overflow: hidden;
+        }
+        canvas{
+            position:absolute;
+            z-index:-1;
+            top: 0;
+        }
+        .lg-model{
+            width: 450px;
+            height: auto;
+            overflow: hidden;
+            margin: 10% auto 0 auto;
+            box-shadow: 0 -15px 30px #0d957a;
+            border-radius: 5px;
+        }
+        div.lgn{
+            padding:30px 10px;
+            background-color: white;
+            border:1px solid #aaa;
+			opacity:0.7;
+		}
+        div.lgn-title h2{
+            margin:0;
+            text-align: center;
+        }
+        div.lgn-title p{
+            font-size:13px;
+            color:#aaa;
+            font-weight: bold;
+            text-align:center;
+        }
+        div.form-item{
+            margin:15px 0;
+            padding:5px 15px;
+            text-align:center;
+            overflow: hidden;
+        }
+        div.form-item>a{
+            display:block;
+            width:100px;
+            margin:5px 0;
+            padding-left:30px;
+            font-size:13px;
+            text-align: left;
+            color:blue;
+            text-underline: none;
+        }
+        div.form-item>p{
+            font-size:13px;
+        }
+        input.lgn-input{
+            width:80%;
+            height:24px;
+            background-color: #eee;
+            border:1px solid #ddd;
+        }
+        input.lgn-btn{
+            width:180px;
+            height:40px;
+            background-color: #007AFF;
+            border:0;
+            margin:0 auto;
+        }
+        input.lgn-graphic-user{
+            padding-left:25px;
+            background-image: url("imgs/ico-user-small.png");
+            background-size:24px 24px;
+            background-repeat: no-repeat;
+        }
+        input.lgn-graphic-pwd{
+            padding-left:25px;
+            background-image: url("imgs/ico-pwd-small.png");
+            background-size:24px 24px;
+            background-repeat: no-repeat;
+            z-index: 10;
+        }
+
+        @media screen and (max-device-width: 768px) {
+            canvas.pg-canvas{
+                width:100%;
+                padding:0;
+            }
+            .lg-model{
+                margin: 30% auto 0 auto;
+            }
+        }
+    </style>
+    <script src="bootstrap-3.3.6/js/jquery-1.11.3.min.js"></script>
+    <script src="js/Particleground.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //粒子背景特效
+            $('body').particleground({
+                dotColor: '#5cbdaa',
+                lineColor: '#5cbdaa'
+            });
+        });
+    </script>
+</head>
+<body>
+    <canvas class="pg-canvas"  width="1920" height="847"></canvas>
+	<div class="lg-model">
+		<div class="lgn">
+			<div class="lgn-title">
+				<h2>用户登录</h2>
+				<p>你好，欢迎你登录Runton社区。</p>
+			</div>
+			<div class="lgn-panel">
+				<form id="login-form" action="php/runton_login.php" method="post">
+					<div class="form-item">
+						<input class="lgn-input lgn-graphic-user" type="text" name="username" required autofocus placeholder="用户名" autocomplete="off"/>
+					</div>
+                    <div class="form-item">
+                        <input class="lgn-input lgn-graphic-pwd" type="password" name="password" required placeholder="密码"/>
+                        <a href="#">忘记了密码</a>
+                    </div>
+					<div class="form-item">
+						<input class="lgn-btn" type="submit" value="登录"/>
+						<p>第一次访问网站? <a href="runton_register.html">注册</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <script src="js/common.min.js"></script>
+</body>
+</html>

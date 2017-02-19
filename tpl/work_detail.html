@@ -1,0 +1,63 @@
+<!-- 作品详情页 -->
+<div class="box">
+    <div class="work_detail container">
+        <div class="row row1">
+            <h3>{{work.title}}</h3>
+            <div>
+                <span>类型：<i>{{work.type}}</i></span>
+                <span>标签：<i>{{work.tag}}</i></span>
+            </div>
+            <div>
+                <div class="lt">
+                    <span class="see">{{work.click_rate}}</span>
+                    <span class="good">{{work.fabulous}}</span>
+                    <span class="response">{{work.comment}}</span>
+                </div>
+                <div class="rt" >
+                    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="work_pic">
+                <img ng-src="{{work.pic}}" alt=""/>
+            </div>
+            <div class="btnCtl_group">
+                <a class="btn btn-info" href="{{work.preview_url}}">预览</a>
+                <a class="btn btn-info" href="{{work.ftp}}">下载</a>
+            </div>
+            <div class="work_describe" ng-bind-html="work.describe">
+            </div>
+            <div class="commits">
+                <div class="commits_level">
+                    <span>评论</span>
+                    <span class="rt">打分：<img src="" alt=""/></span>
+                </div>
+                <div class="commentTool">
+                </div>
+                <!-- 评论内容 -->
+                <div class="commits_content">
+                    <div ng-repeat="comment in Comments track by $index">
+                        <div class="media">
+                        <span class='pull-left'>
+                            <img src="images/icon/img1345658448.png" alt="游客"/>
+                        </span>
+                            <div class="media-body">
+                                <p>{{comment.userid}}</p>
+                                <p ng-bind-html="comment.comment"></p>
+                                <p>
+                                    <span class="time rt">{{comment.commit_time}}</span>
+                                    <span class="level rt">{{$index}}楼</span>
+                                <div style="clear: both"></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-info" ng-click="loadMore()">加载更多...</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["mshare","qzone","tsina","weixin","sqq"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>

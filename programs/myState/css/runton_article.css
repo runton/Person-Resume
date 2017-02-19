@@ -1,0 +1,106 @@
+section .col-md-9 .article_title{
+    margin-top:30px;
+}
+section .col-md-9 .article_title p{
+    margin:0;
+    text-align:center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+section .col-md-9 .article_title p span{
+    display:inline-block;
+    margin:5px;
+    text-overflow: ellipsis;
+}
+
+#article_context{
+    margin-bottom:30px;
+    word-wrap:break-word;
+    word-break:break-all;
+    overflow: hidden;
+}
+#article_context .recommend{
+    text-align:center;
+}
+#article_context .recommend a{
+    display: inline-block;
+    height:25px;
+    margin:0 5px;
+    padding:0 5px;
+    font-size: 1em;
+    line-height: 25px;
+    border:none;
+    text-decoration: none;
+    border-radius: 3px;
+    color:white;
+    background-color: #333333;
+}
+#article_context .recommend a:hover{
+    color:white;
+    background-color: #EA4B36;
+}
+#article_context .recommend a span{
+    margin-right:10px;
+}
+section .col-md-9 .comment_edit p span{
+    float:right;
+}
+section .col-md-9 .comment_edit textarea{
+    width:100%;
+}
+/*
+    TODO 分享链接
+*/
+.share_article{
+    height: 28px;
+    margin: 10px 0;
+}
+.bdsharebuttonbox{
+    float: right;
+    margin-right: 15px;
+}
+.recommend{
+    clear: both;
+}
+/*
+    TODO 评论回复内容
+*/
+
+section div.col-md-9 div.article_comment h4{
+    background-color: #E4EBF7;
+    height:30px;
+    line-height: 30px;
+    margin-top:20px;
+    border-bottom:1px solid #ddd;
+}
+section .col-md-9 div.article_comment #comment_context{
+    margin-bottom: 30px;
+
+}
+section .col-md-9 div.article_comment #comment_context>.media{
+    border-top:1px solid #ddd;
+}
+section .col-md-9 div.article_comment #comment_context .media{
+    margin-top:5px;
+}
+section .col-md-9 div.article_comment #comment_context .media a.pull-left img{
+    width:24px;
+    height:24px;
+}
+section .col-md-9 div.article_comment #comment_context .media p{
+    height:24px;
+    margin-bottom:0;
+}
+section .col-md-9 div.article_comment #comment_context .media p span{
+    float:right;
+    margin-right:20px;
+}
+
+/*
+    TODO 评论回复内容
+*/
+#comment_context .comment_edit1{
+    margin-bottom:10px;
+}

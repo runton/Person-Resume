@@ -1,0 +1,128 @@
+//获取元素相对于body的距离
+function getElemTop(elem)
+	{
+		var sum =0;
+		while (elem.offsetParent!=null)
+		{
+			sum += elem.offsetTop;
+			elem = elem.offsetParent;
+		}
+		return sum;
+	}
+
+var elevator ={
+	FHEIGHT:0,  //楼层高度
+	UPLEVEL:0,   //亮灯范围的上限
+	DOWNLEVEL:0,  //亮灯范围的下限
+	spans:null,   //class为floor的元素下的header下的直接子元素span
+	elemTops:[],  //所有楼层的span距离body顶部的距离
+	DISTANCE:0,  //总距离
+	DURATION:1000,   //总时间
+	STEPS:200,   // 总步数
+	interval:0,
+	step:0,
+	timer:null,
+	moved:0,
+	init:function(){
+		//获得FHEIGHT：获取id为f1的元素的高+id为f1的元素的marginBottom
+		this.FHEIGHT=parseFloat($("#f1").css("height"))+parseFloat($("#f1").css("marginBottom"));
+		//计算UPLEVEL：（innerHeight-FHEIGHT）/2
+		this.UPLEVEL=(innerHeight-this.FHEIGHT)/2;
+		//计算DOWNLEVEL：UPLEVEL+FHEIGHT
+		this.DOWNLEVEL = this.UPLEVEL+this.FHEIGHT;
+		//获取每个class为floor的元素下的header下的直接子元素span，将结果保存在spans中
+		this.spans = $(".floor>header>span");
+		//遍历spans中的每个span
+		for (var i =0;i<this.spans.length ;i++ )
+		{
+			//调用getElemTop()方法，获得当前span距body顶部的距离，保存在elemTops中
+			this.elemTops[i] = getElemTop(this.spans[i]);	
+		}
+		//为document绑定滚动事件为checkLight
+		document.bind("scroll",this.checkLight.bind(this));
+
+
+		//为id为elevator的元素绑定鼠标进入事件:
+		$("#elevator").bind("mouseover",function(e){
+			//获得target
+			var target = e.target;
+			//如果target不是ul
+			if (target.nodeName!="UL")
+			{
+				//如果target是a
+				if (target.nodeName == "A")
+				{
+					//将target的父节点赋值给 target
+					target = target.parentNode;
+				}
+				//获得target下的所有a元素，保存在as中
+				var as = target.$("a");
+				//将as[0]元素隐藏
+				as[0].css("display","none");
+				//将as[1]元素显示
+				as[1].css("display","block");
+			}
+		});
+		//为id为elevator的元素绑定鼠标移出事件:
+		$("#elevator").bind("mouseout",function(e){
+			var target = e.target;
+			if (target.nodeName!="UL")
+			{
+				//如果target是a
+				if (target.nodeName == "A")
+				{
+					//将target的父节点赋值给 target
+					target = target.parentNode;
+				}
+				//获得target下的所有a元素，保存在as中
+				var as = target.$("a");
+				//将as[0]元素显示
+				as[0].css("display","block");
+				//将as[1]元素隐藏
+				as[1].css("display","none");
+			}
+		});
+		//计算interval:
+		this.interval = this.DURATION/this.STEPS;
+		 //为id为elevator的div绑定单击事件为move
+		$("#elevator").bind("click",this.move.bind(this));
+
+	},
+
+	move:function(e){
+		
+	},
+	moveStep:function(){
+	
+	},
+	checkLight:function(){
+		//获取scrollTop：document.body.scrollTop
+		var scrollTop = document.body.scrollTop;
+		//console.log(scrollTop);
+		//获得id为elevator下的所有li ,保存在lis中
+		var lis = $("#elevator>ul>li");
+		//遍历spans中的每个span
+		for (var i =0;i<this.spans.length ;i++ )
+		{
+			//从elemTops中获得i位置的高度，保存在elemTop中
+			var elemTop =this.elemTops[i];
+			//在i 位置找到elevator下的a元素 ，保存在as[i]
+			var as = lis[i].$("a");
+			//如果elemTop<=scrollTop+DOWNLEVEL
+			if(elemTop<=scrollTop+this.DOWNLEVEL&&elemTop>scrollTop+this.UPLEVEL)
+			{//且elemTop>scrollTop+UPLEVEL
+				//spans[i].css("class","hover");    //问题代码  
+				this.spans[i].className ="hover";            //正确代码
+				as[0].css("dispaly","none");
+				as[1].css("display","block");
+			}else{
+				//spans[i].css("class","");    //问题代码
+				this.spans[i].className ="";           //正确代码
+				as[0].css("dispaly","block");
+				as[1].css("display","none");
+			}
+		}
+	}
+}
+
+elevator.init();

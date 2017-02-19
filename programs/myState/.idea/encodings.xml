@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/js/common.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/connectMe.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/runton_art_list.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/runton_article.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/runton_index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/runton_source.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/runton_usercenter.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/usercenter_loader.js" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="Author" content="zhangxiaobing">
+    <meta name="Keywords" content="Runton 社区">
+    <meta name="Description" content="runton 社区致力于为广大网页前端开发者提供技术交流和资源共享。">
+    <title>Runton 用户中心</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/user_center.css"/>
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--<script src="ueditor_php/ueditor.config.js"></script>-->
+    <!--<script src="ueditor_php/ueditor.all.js"></script>-->
+    <!--<script src="ueditor_php/lang/zh-cn/zh-cn.js"></script>-->
+</head>
+<body>
+    <!-- TODO 顶部导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#manu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Runton</a>
+            </div>
+            <div class="collapse navbar-collapse" id="manu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="runton_art_list.html">技术分享</a></li>
+                    <li><a href="runton_source.html">资源分享</a></li>
+                    <li><a href="connectMe.html">联系我们</a></li>
+                    <li class="dropdown">
+                        <div class="login-reg">
+                            <a href="login.html" class="login">登录</a>|<a href="runton_register.html" class="">注册</a>
+                        </div>
+                        <div class="user_center">
+                            <a href="#" class="user_bar dropdown-toggle" data-toggle="dropdown"></a>
+                            <!-- TODO 用户中心  -->
+                            <ul class="dropdown-menu">
+                                <li><a href="runton_usercenter.html">用户中心</a></li>
+                                <li><a class="Exit" href="#">退出</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <!-- TODO 用户中心 -->
+        <div class="container">
+            <!-- TODO 左侧 功能导航栏-->
+            <div id="left_navbar" class="col-md-2 col-xs-12">
+                <div class="row userInfo_nav">
+                    <dl>
+                        <dt><i></i>用户信息</dt>
+                        <dd><a href="#" data-item="1">基本信息</a></dd>
+                    </dl>
+                </div>
+                <div class="row blog_nav">
+                    <dl>
+                        <dt><i></i>文章管理</dt>
+                        <dd><a href="#" data-item="3">全部文章</a></dd>
+                        <dd><a href="#" data-item="4">新建文章</a></dd>
+                        <dd><a href="#" data-item="5">修改文章</a></dd>
+                        <dd><a href="#" data-item="6">删除文章</a></dd>
+                    </dl>
+                </div>
+                <div class="row statistics_nav">
+                    <dl>
+                        <dt><i></i>数据统计</dt>
+                        <dd><a href="#" data-item="7">发表记录</a></dd>
+                        <dd><a href="#" data-item="8">访问记录</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- TODO 右侧 内容显示栏-->
+            <div class="col-md-10 col-xs-12">
+                <!-- TODO 用户信息模块-->
+                <div class="userInfo">
+                    <!-- TODO 导航条 -->
+                    <div class="row1">
+                        <ul class="list-unstyled  nav nav-tabs">
+                            <li class="active"><a href="#personInfo" data-toggle="tab">基本信息</a></li>
+                        </ul>
+                    </div>
+                    <div id="myTabContent" class="tab-content">
+                        <!-- TODO 用户基本信息 -->
+                        <div id="personInfo" class="row2 personInfo tab-pane fade in active">
+                            <form class="Info_context" action="php/runton_update_userinfo.php">
+                                <div class="form-group clear_float">
+                                    <label for="username" class="col-sm-2 control-label">用户名：</label>
+                                    <div class="col-sm-7">
+                                        <input id="username" type="text" class="form-control" name="username" value="userName" disabled/>
+                                    </div>
+                                    <span class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="password" class="col-sm-2 control-label">密码：</label>
+                                    <div class="col-sm-7">
+                                        <input id="password" type="password" class="form-control" name="password" value="" pattern="^[a-zA-Z0-9]{6,12}$" disabled/>
+                                    </div>
+                                    <span id="passwdTip" class="col-sm-3 control-label">
+                                        <button type="button" class="btn btn-default">查看密码</button>
+                                    </span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="userImg" class="col-sm-2 control-label">用户图像：</label>
+                                    <div class="col-sm-7">
+                                        <input id="userImg" type="text" class="form-control" name="userImg" value=""/>
+                                    </div>
+                                    <span id="userImgTip" class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="name" class="col-sm-2 control-label">姓名：</label>
+                                    <div class="col-sm-7">
+                                        <input id="name" type="text" class="form-control" name="name"  placeholder="您的真实姓名" maxlength="8"/>
+                                    </div>
+                                    <span id="nameTip" class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="sex" class="col-sm-2 control-label">性别：</label>
+                                    <div class="col-sm-7">
+                                        <select id="sex" name="sex" class="form-control">
+                                            <option value="1" selected>男</option>
+                                            <option value="0">女</option>
+                                        </select>
+                                    </div>
+                                    <span class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="birthday" class="col-sm-2 control-label">出生日期：</label>
+                                    <div class="col-sm-7">
+                                        <input id="birthday" type="date" class="form-control" value="" name="birthday"  placeholder="您的出生日期"/>
+                                    </div>
+                                    <span class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="email" class="col-sm-2 control-label">邮箱：</label>
+                                    <div class="col-sm-7">
+                                        <input id="email" type="email" class="form-control" value="" name="email"  placeholder="您的邮箱地址" required/>
+                                    </div>
+                                    <span id="emailTip" class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="tel" class="col-sm-2 control-label">手机号：</label>
+                                    <div class="col-sm-7">
+                                        <input id="tel" type="tel" class="form-control"  name="tel"  placeholder="您的手机号码" pattern="^[1][0-9]{10}$"/>
+                                    </div>
+                                    <span id="telTip" class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="question" class="col-sm-2 control-label">密保问题：</label>
+                                    <div class="col-sm-7">
+                                        <select id="question" name="question" class="form-control">
+                                            <option value="0" selected>我的家乡在哪？</option>
+                                            <option value="1">我的小学校名？</option>
+                                        </select>
+                                    </div>
+                                    <span class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="answer" class="col-sm-2 control-label">答案：</label>
+                                    <div class="col-sm-7">
+                                        <input id="answer" type="text" class="form-control" name="answer" value="123456" placeholder="问题答案"/>
+                                    </div>
+                                    <span id="answerTip" class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <label for="create_time" class="col-sm-2 control-label">创建日期：</label>
+                                    <div class="col-sm-7">
+                                        <input id="create_time" type="date" class="form-control" value="2016/08/30" name="create_time" disabled/>
+                                    </div>
+                                    <span class="col-sm-3 control-label"></span>
+                                </div>
+                                <div class="form-group clear_float">
+                                    <input  type="submit" class="btn btn-success save" value="保存"/>
+                                    <input  type="button" class="btn btn-success cancel" value="取消"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO 文档编辑模块-->
+                <div class="userEditor hidden">
+                    <!-- TODO 导航条 -->
+                    <div class="row1">
+                        <ul class="list-unstyled  nav nav-tabs">
+                            <li class="active"><a href="#allArticle" data-toggle="tab">全部文章</a></li>
+                            <li><a href="#addNewArticle" data-toggle="tab">新建文章</a></li>
+                            <li><a href="#alertArticle" data-toggle="tab">修改文章</a></li>
+                            <li><a href="#deletedArticle" data-toggle="tab">删除文章</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <!-- TODO 全部文章 -->
+                        <div id="allArticle" class="row2 tab-pane fade in active">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="td-number">编号</th>
+                                        <th class="tb-title">标题</th>
+                                        <th class="td-author">作者</th>
+                                        <th class="td-decoration">描述</th>
+                                        <th class="td-type">类型</th>
+                                        <th class="td-state">状态</th>
+                                        <th class="td-createTime">创建时间</th>
+                                        <th class="td-alterTime">修改时间</th>
+                                        <th class="td-operate">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <div id="pageTool"></div>
+                        </div>
+                        <!-- TODO 新建文章 -->
+                        <div id="addNewArticle" class="row3 tab-pane fade ">
+                            <form id="articleForm" class="form-horizontal" action="php/runton_usercenter.php">
+                                <!-- TODO 设置文章标题信息 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="title">标题：</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="title" type="text" name="title" placeholder="请输入文章标题" required maxlength="80"/>
+                                    </div>
+                                </div>
+                                <!-- TODO 设置文章作者 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="author">作者：</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="author" type="text" name="author" placeholder="请输入文章标题" required maxlength="20"/>
+                                    </div>
+                                </div>
+                                <!-- TODO 设置文章类型（标签） -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="label">标签：</label>
+                                    <div class="col-sm-10">
+                                        <select id="label" name="labels" class="form-control" multiple="multiple">
+                                            <option value="HTML5">HTML5</option>
+                                            <option value="CSS">CSS</option>
+                                            <option value="JavaScript">JavaScript</option>
+                                            <option value="AngularJS">AngularJS</option>
+                                            <option value="jQuery">jQuery</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="Bootstrap">Bootstrap</option>
+                                            <option value="MySQL">MySQL</option>
+                                            <option value="Two.js">Two.js</option>
+                                            <option value="Node.js">Node.js</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <input id="Original" type="radio" name="type" value="1" checked/><label
+                                            for="Original">原创</label>
+                                        <input id="Reprint"  type="radio" name="type" value="0"/><label
+                                            for="Reprint">转载</label>
+                                    </div>
+                                </div>
+
+                                <!-- TODO 设置文章转载地址 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="loadUrl">转载地址：</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="loadUrl" type="url" name="loadUrl" maxlength="255" pattern="(^(https?://|ftp://|file://|www.))[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]"/>
+                                    </div>
+                                </div>
+                                <!-- TODO 设置文章描述信息 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" >描述：</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="decoration" id="decoration" class="form-control" cols="30" rows="3" maxlength="300"></textarea>
+                                    </div>
+                                </div>
+                                <div>
+                                    <script id="editor" type="multipart/form-data" style="width:100%;"></script>
+                                    <div class="btns">
+                                        <button id="auditing" type="submit" class="btn btn-default">提交审核</button>
+                                        <button id="save" class="btn btn-default">保存</button>
+                                        <button id="clear" class="btn btn-default">清空</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- TODO 修改文章 -->
+                        <div id="alertArticle" class="row4 tab-pane fade">
+                            <form id="articleForm2" class="form-horizontal" action="">
+                                <!-- TODO 选择用户要修改的文章编号 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="title2">标题：</label>
+                                    <div class="col-sm-10">
+                                        <select id="tid" name="tid" class="form-control" required>
+                                            <option value="0">--请选择要修改的文章编号--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- TODO 选择用户要修改的文章标题 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="title2">标题：</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="title2" type="text" name="title" placeholder="请输入文章标题" required maxlength="80"/>
+                                    </div>
+                                </div>
+                                <!-- TODO 设置文章作者 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="author2">作者：</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="author2" type="text" name="author" placeholder="请输入文章标题" required maxlength="20"/>
+                                    </div>
+                                </div>
+                                <!-- TODO 设置文章类型（标签） -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="label2">标签：</label>
+                                    <div class="col-sm-10">
+                                        <select id="label2" name="labels" class="form-control" multiple="multiple">
+                                            <option value="HTML5">HTML5</option>
+                                            <option value="CSS">CSS</option>
+                                            <option value="JavaScript">JavaScript</option>
+                                            <option value="AngularJS">AngularJS</option>
+                                            <option value="jQuery">jQuery</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="Bootstrap">Bootstrap</option>
+                                            <option value="MySQL">MySQL</option>
+                                            <option value="Two.js">Two.js</option>
+                                            <option value="Node.js">Node.js</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <input id="Original2" type="radio" name="type" value="1" checked/><label
+                                            for="Original">原创</label>
+                                        <input id="Reprint2"  type="radio" name="type" value="0"/><label
+                                            for="Reprint">转载</label>
+                                    </div>
+                                </div>
+
+                                <!-- TODO 设置文章转载地址 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="loadUrl">转载地址：</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="loadUrl2" type="url" name="loadUrl" maxlength="255" pattern="(^(https?://|ftp://|file://|www.))[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]"/>
+                                    </div>
+                                </div>
+                                <!-- TODO 设置文章描述信息 -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" >描述：</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="decoration" id="decoration2" class="form-control" cols="30" rows="3" maxlength="300"></textarea>
+                                    </div>
+                                </div>
+                                <div>
+                                    <script id="editor2" type="multipart/form-data" style="width:100%;"></script>
+                                    <div class="btns">
+                                        <button id="auditing2" type="submit" class="btn btn-default">提交审核</button>
+                                        <button id="save2" type="button" class="btn btn-default">保存</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- TODO 删除文章 -->
+                        <div id="deletedArticle" class="row5 tab-pane fade">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>标题</th>
+                                        <th>标签</th>
+                                        <th>作者</th>
+                                        <th>描述</th>
+                                        <th>引用</th>
+                                        <th>创建时间</th>
+                                        <th>修改时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--TODO 数据统计模块 -->
+                <div class="census hidden">
+                    <!-- TODO 导航条 -->
+                    <div class="row1">
+                        <ul class="list-unstyled  nav nav-tabs">
+                            <li class="active"><a href="#" data-toggle="tab">发表记录</a></li>
+                            <li><a href="#" data-toggle="tab">访问记录</a></li>
+                        </ul>
+                    </div>
+                    <!-- TODO 内容 -->
+                    <div class="tab-content">
+                        <!-- TODO 发表记录 -->
+                        <div id="postRecord" class="row6 tab-pane fade">
+                            <p>功能暂未开发。。。</p>
+                        </div>
+                        <!-- TODO 访问记录 -->
+                        <div id="visitedRecord" class="row7 tab-pane fade">
+                            <p>功能暂未开发。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- TODO 页脚部分 -->
+    <footer>
+        <div class="row2">
+            <div class="container">
+                <ul class="runton-info list-unstyled">
+                    <li>Copyright © 2015-2016 云腾社区  runton.com.cn All Rights Reserved.</li>
+                    <li> 备案号：皖ICP备16003202号-1</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+    <!--<script src="js/query.min.js"></script>-->
+    <!--<script src="js/paging.min.js"></script>-->
+    <!--<script src="bootstrap-3.3.6/js/bootstrap.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/common.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/runton_usercenter.min.js"></script>-->
+    <script src="js/require.js"></script>
+    <script src="js/usercenter_loader.js"></script>
+</body>
+</html>

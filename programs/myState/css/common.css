@@ -1,0 +1,337 @@
+/************媒体查询样式******************/
+
+@media screen and (min-width:1920px){
+    .container{
+        width:1680px;
+    }
+}
+@media screen and (min-width:768px) and (max-width:1920px){
+    .container{
+        width:1170px;
+    }
+}
+@media screen and (max-device-width: 768px) {
+    .navbar-right{
+        margin-right:0;
+        padding-right:10px;
+    }
+    .container{
+        width:100%;
+        padding:0;
+    }
+
+}
+/************全局样式******************/
+*{
+    padding: 0;
+    margin:0px;
+}
+body{
+    background-color: #E5E5E5;
+    color:black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+hr{
+    margin:10px 0;
+    border-top:1px solid #ddd;
+}
+.lt{
+    float:left;
+}
+.rt{
+    float:right;
+}
+
+ul{
+    list-style-type: none;
+}
+.QRCode{
+    position:absolute;
+    top:-156px;
+    left:-50px;
+    width:150px;
+    height:150px;
+    z-index:1070;
+    margin-top:-10px;
+    display:none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+footer ul.contact-icon li a {
+    position:relative;
+}
+.QRCode img{
+    width:100%;
+    height:100%;
+}
+.QRCode .arrow {
+    position: absolute;
+    left:50%;
+
+    border-width:11px;
+    border-style:solid;
+    border-top:11px;
+    border-left:11px;
+    border-right:11px;
+    border-bottom: 0;
+    color:transparent;
+    bottom:-11px;
+}
+.QRCode .arrow:after{
+    position: absolute;
+    bottom:1px;
+    margin-left:-10px;
+    content:" ";
+    border-top-color:#fff;
+    border-width:10px;
+    border-bottom-width:0;
+    border-style: solid;
+    width:0;
+    height:0;
+    box-sizing:border-box;
+}
+/******************************************************/
+.control-error {
+    padding:7px 0;
+    text-align: left;
+    background-color: #d9534f;
+    border-radius: 4px;
+    color: #ffffff;
+}
+.control-success {
+    padding:7px 0;
+    text-align: left;
+    background-color: #5cb85c;
+    border-radius: 4px;
+    color: #ffffff;
+}
+.control-default {
+    padding:7px 0;
+    text-align: left;
+    background-color: #777;
+    border-radius: 4px;
+    color: #ffffff;
+}
+/******************************************************/
+/***********    TODO 导航栏样式   ***********************/
+/******************************************************/
+.navbar-inverse .navbar-brand{
+    color:#fff;
+}
+nav>.container>#manu>ul>li>a{
+    width:100%;
+    text-align: center;
+    padding:10px 15px;
+}
+nav .container ul li a{
+    display:inline-block;
+    color:white;
+    text-decoration: none;
+}
+.navbar-inverse ul li a:hover{
+    color:#50AFD1;
+}
+nav .container #manu .login-reg{
+    display: none;
+    margin:10px auto;
+    width:60px;
+}
+nav .container #manu .user_center{
+    display: none;
+    margin:4px auto;
+    text-align: center;
+    width:60px;
+}
+/*
+    TODO 用户中心
+*/
+nav .user_center{
+    position:relative;
+}
+nav .user_center .user_bar{
+    display:inline-block;
+    width:32px;
+    height:32px;
+    border:2px solid black;
+    vertical-align: middle;
+    border-radius:15px;
+    background-image:url(../imgs/user_xs.jpg);
+}
+/*   TODO 用户中心 弹出列表  */
+nav .user_center ul{
+    background-color: #ddd;
+}
+nav .user_center ul li a{
+    display: block;
+    width:100%;
+}
+nav .user_center ul li a:hover{
+    display:block;
+    width:100%;
+    color:white;
+    background-color: #50AFD1;
+}
+nav  .user_center  ul li a{
+    color:black;
+}
+nav .user_center a.user_bar:hover{
+    border:2px solid #50AFD1;
+}
+/*** TODO 用户登录***/
+.login_container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0, .6);
+    z-index: 999;
+}
+.modal-dialog {
+    width: 300px;
+    margin: 100px auto 0;
+}
+.modal-content {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-shadow: 0 0 4px #aaa;
+    background: #fff;
+    padding: 15px;
+}
+.modal-content h4 {
+    font-size: 1.4em;
+}
+.modal-content .msg {
+    border: 1px solid #e4393c;
+    border-radius: 2px;
+    color: #e4393c;
+    padding: 6px;
+    margin: 8px 0;
+    background: #fee;
+}
+.modal-content input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    display: block;
+    padding: 6px;
+    margin: 8px 0;
+}
+.modal-content span{
+    position: absolute;
+    display:block;
+    width:20px;
+    text-align: center;
+    background-color: #ddd;
+    right:0;
+    top:0;
+}
+.modal-content span a{
+    text-decoration: none;
+}
+.modal-content button {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    background: #e4393c;
+    color: #fff;
+    display: block;
+    padding: 6px;
+    margin: 8px 0;
+}
+/******************************************************/
+/***********    TODO  页脚样式   ***********************/
+/******************************************************/
+footer .row1 .container{
+    background-color: #ddd;
+    min-height:50px;
+}
+footer p{
+    margin-bottom:5px;
+}
+footer p,footer span ,footer h4, footer ul li{
+    color:#333333;
+}
+.qq_icon {
+    background-image: url(../imgs/94b1OOOPIC361_06.png);
+    background-size: cover;
+}
+.weixin_icon{
+    background-image: url(../imgs/94b1OOOPIC361_08.png);
+    background-size: cover;
+}
+.sinablog_icon{
+    background-image: url(../imgs/94b1OOOPIC361_04.png);
+    background-size: cover;
+}
+.qqblog_icon{
+    background-image: url(../imgs/94b1OOOPIC361_02.png);
+    background-size: cover;
+}
+footer .row2{
+    background-color:#222222;
+}
+footer .row2 .runton-info{
+    width:90%;
+    margin:0 auto;
+}
+footer .row2 li{
+    color:#fff;
+    text-align:center;
+}
+footer .row1 .last_adjust p{
+    margin-bottom:0px;
+    font-weight:700;
+
+}
+footer .row1 .last_adjust p a{
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    width:100%;
+}
+footer .row1 .last_adjust span{
+    font-size:12px;
+}
+
+footer .row1 .contact-icon li{
+    float:left;
+    margin:3px;
+}
+footer .row1 .contact-icon li a{
+    display:block;
+    width:40px;
+    height:40px;
+    opacity: 0.8;
+}
+footer .row1 .contact-icon li a:hover{
+    opacity: 1;
+}
+footer .row1 .last-comment li p{
+    height:30px;
+    background-color: #ddd;
+    margin:3px;
+}
+footer .row1 .last-member li{
+    float:left;
+    width:50px;
+    height:50px;
+    margin:3px;
+    background-color:#aaa;
+}
+
+/*分页样式*/
+.ui-paging-container{margin: 15px 0; color:#666;font-size: 12px;}
+.ui-paging-container ul{overflow: hidden;text-align: center;}
+.ui-paging-container ul,.ui-paging-container li{list-style: none;}
+.ui-paging-container li{display: inline-block;padding:3px 6px;margin-left: 5px;color:#666;}
+.ui-paging-container li.ui-pager{cursor: pointer; border:1px solid #ddd;border-radius: 2px;}
+.ui-paging-container li.ui-pager:hover,.ui-paging-container li.focus{background-color: #288df0;color:#FFFFFF;}
+.ui-paging-container li.ui-paging-ellipse{border:none;}
+.ui-paging-container li.ui-paging-toolbar{padding:0;}
+.ui-paging-container li.ui-paging-toolbar select{height:22px;border:1px solid #ddd;color: #666;}
+.ui-paging-container li.ui-paging-toolbar input{line-height: 20px; height:20px;padding:0;border:1px solid #ddd;text-align: center;width: 30px;margin:0 0 0 5px;vertical-align: middle;}
+.ui-paging-container li.ui-paging-toolbar a{vertical-align: middle; text-decoration: none;display: inline-block;height:20px;border:1px solid #ddd;vertical-align: top;border-radius: 2px;line-height: 20px;padding:0 3px;cursor: pointer;margin-left: 5px;color: #666;}
+.ui-paging-container li.ui-pager-disabled,.ui-paging-container li.ui-pager-disabled:hover{background-color: #aaa;;cursor: default;border:none;color:#666;}

@@ -1,0 +1,197 @@
+@media screen and (max-device-width: 768px){
+
+}
+
+/***
+    TODO 用户基本信息
+***/
+section div.container{
+    margin-top:50px;
+    min-height:1500px;
+    background:white;
+}
+/*TODO 左侧 功能导航栏*/
+.col-md-2{
+    padding:0px;
+}
+section div.container .col-md-2 .row{
+    margin:0px;
+    border-bottom:1px solid #ddd;
+}
+
+section .col-md-2 .row dl{
+    margin:10px 0;
+    padding-left:10px;
+}
+section .col-md-2 .row dl dt,.col-md-2 .row dl dd{
+    height:30px;
+    line-height: 34px;
+    font-size:14px;
+}
+section .col-md-2 .row dl dt i{
+    display:inline-block;
+    height:18px;
+    width:18px;
+    vertical-align: middle;
+    margin-right:10px;
+    margin-top:-2.8px;
+}
+section .col-md-2 .row dl dd a{
+    display:block;
+    padding-left:30px;
+    text-decoration:none;
+}
+/*
+  TODO  左侧 功能导航栏 动态效果
+*/
+section .col-md-2 .row dl dd a.active,section .col-md-2 .row dl dd a:hover{
+    background-color:#1DBA9B ;
+    color:white;
+}
+#left_navbar .userInfo_nav dl dt i{
+    background-image: url(../imgs/icon_menu_function.png);
+}
+#left_navbar .blog_nav dl dt i{
+    background-image: url(../imgs/icon_menu_management.png);
+}
+#left_navbar .statistics_nav dl dt i{
+    background-image: url(../imgs/icon_menu_statistics.png);
+}
+/***
+    TODO 用户基本信息
+***/
+div.userInfo .row1 ul {
+    margin:20px 0;
+}
+
+div.userInfo div.row2{
+    background-color: white;
+}
+div.userInfo div.personInfo{
+
+}
+div.userInfo div.personInfo .Info_context .form-group{
+    margin:20px 10px;
+    padding:5px 0;
+}
+div.userInfo div.personInfo .Info_context .form-group:last-child{
+    text-align: center;
+}
+div.userInfo div.personInfo .Info_context .form-group input.btn{
+    width:100px;
+    margin:5px 10px;
+}
+div.userInfo div.personInfo .Info_context .form-group span{
+    height:34px;
+    line-height: 20px;
+}
+.clear_float:after{
+    visibility:hidden;
+    display:block;
+    font-size: 0;
+    content:'\20';
+    height:0;
+    clear:both;
+}
+/***
+        TODO 文档编辑器
+***/
+
+.userEditor .row4 .btns{
+    width:30%;
+    margin:10px auto;
+
+}
+.userEditor .row1 ,.userEditor .row2, .userEditor .row3,.userEditor .row4,.userEditor .row5{
+    margin:10px 0;
+}
+.userEditor .row3 form,.userEditor .row4 form{
+    border:1px solid #ddd;
+    border-radius:3px;
+    margin-bottom:10px;
+    padding:10px;
+}
+.userEditor table tr{
+    font-size:10px;
+    height:24px;
+}
+.userEditor table tr td,.userEditor table tr th{
+    border:1px solid #ddd;
+    padding:5px 3px ;
+    text-align:center;
+}
+.userEditor table tr th{
+    text-align: center;
+}
+.userEditor table tr select{
+    background-color:transparent ;
+}
+.userEditor  #allArticle table ,.userEditor  #deletedArticle table{
+    width:100%;
+    border:1px solid #aaa;
+    border-radius:4px;
+
+}
+.userEditor table tbody tr a{
+    display:block;
+    margin:3px auto;
+}
+.userEditor table thead tr{
+    color:white;
+    background-color: #01669A;
+}
+.userEditor table tbody tr:nth-child(2n+1){
+    background-color:#E4ECFF;
+}
+
+/*                       TODO 表格列样式                 */
+.td-number{
+    max-width:36px;
+}
+.tb-title{
+    max-width:160px;
+}
+.td-author{
+    max-width:100px;
+}
+.td-decoration{
+    max-width:300px;
+}
+.td-type{
+    max-width:36px;
+}
+.td-state{
+    max-width:60px;
+}
+.td-createTime{
+    max-width:72px;
+}
+.td-alterTime{
+    max-width:72px;
+}
+.td-operate{
+    min-width:36px;
+}
+@media screen and (max-device-width: 768px){
+    .td-decoration{
+        display:none;
+    }
+}
+.userEditor  #allArticle table thead ,.userEditor  #deletedArticle table thead{
+    background-color: #aaa;
+}
+#addNewArticle div .btns{
+   text-align: center;
+}
+#addNewArticle div .btns button{
+    margin-top:15px;
+}
+/***
+        TODO 数据统计
+***/
+.census .row1 .breadcrumb{
+    background-color:white;
+}
+.census .row1,.census .row2{
+    margin:10px 0;
+}

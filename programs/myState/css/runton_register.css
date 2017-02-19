@@ -1,0 +1,45 @@
+/*
+    TODO 登录界面样式
+*/
+.content {
+    margin-top: 80px;
+    padding:10px 15px;
+    z-index: 3;
+}
+.header {
+    color: black;
+}
+.form {
+    border: 1px solid #777777;
+    border-radius: 4px;
+    padding-top: 20px;
+    background-color: rgba(255,255,255,0.7);
+}
+.form .form-group{
+    margin-left:0;
+    margin-right:0;
+    margin-bottom: 5px;
+}
+.form .form-group div.col-md-5{
+    padding:5px 15px;
+    height:44px;
+}
+.form .form-group div.col-md-5 label{
+    width:100%;
+}
+
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.input-sucess{
+    outline:green dotted 3px;
+}
+.input-warnning{
+    outline:red dotted 3px;
+}
+.input-mismatch{
+    outline:#ff7800 dotted 3px;
+}

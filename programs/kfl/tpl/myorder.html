@@ -1,0 +1,27 @@
+
+<div ng-include="'tpl/include/header.html'"></div>
+<div class="container">
+    <h2 class="text-center">我的订单</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>菜品</th>
+                <th>下单时间</th>
+                <th>联系人</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in orderList">
+                <td>{{order.oid}}</td>
+                <td><img ng-src="img/{{order.img_sm}}" alt=""/></td>
+                <td>{{order.order_time | date:'yyyy-MM-dd'}}</td>
+                <td>{{order.user_name}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+<div ng-include="'tpl/include/footer.html'"></div>

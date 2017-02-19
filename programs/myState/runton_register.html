@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="Author" content="zhangxiaobing">
+    <meta name="Keywords" content="Runton 社区">
+    <meta name="Description" content="runton 社区致力于为广大网页前端开发者提供技术交流和资源共享。">
+    <title>Runton 社区</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/runton_register.css"/>
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- TODO 顶部导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#manu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Runton</a>
+            </div>
+            <div class="collapse navbar-collapse" id="manu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="runton_art_list.html">技术分享</a></li>
+                    <li><a href="runton_source.html">资源分享</a></li>
+                    <li><a href="connectMe.html">联系我们</a></li>
+                    <li class="dropdown">
+                        <div class="login-reg ">
+                            <a href="login.html" class="login">登录</a>|<a href="runton_register.html" class="">注册</a>
+                        </div>
+                        <div class="user_center ">
+                            <a href="#" class="user_bar dropdown-toggle" data-toggle="dropdown"></a>
+                            <!-- TODO 用户中心  -->
+                            <ul class="dropdown-menu">
+                                <li><a href="runton_usercenter.html">用户中心</a></li>
+                                <li><a class="Exit" href="#">退出</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- TODO 主体部分-->
+    <div class="content container">
+        <div class="text-center header">
+            <h1>用户注册页面</h1>
+        </div>
+        <form id="regForm" class="form form-horizontal" action="php/runton_add_user.php" method="post">
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="username">用户名:</label>
+                <div class="col-md-5">
+                    <input id="username" type="text" name="username" class="form-control" autofocus placeholder="请输入用户名" required pattern="^[a-zA-Z0-9]{8,16}$">
+                </div>
+                <div class="col-md-5"><label id="usernameTip" class="control-success">请输入8至16位的英文或数字.</label></div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="password">密码:</label>
+                <div class="col-md-5">
+                    <input id="password"  type="password" name="password" class="form-control" placeholder="请输入密码" required pattern="^[a-zA-Z0-9]{6,12}$">
+                </div>
+                <div class="col-md-5"><label id="passwordTip" class=" hide control-default">请输入6至12位的数字和字母混合组成的密码.</label></div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="sex">性别:</label>
+                <div class="col-md-5">
+                    <select id="sex" name="sex" class="form-control" required>
+                        <option value="1" selected>男</option>
+                        <option value="0">女</option>
+                    </select>
+                </div>
+                <div class="col-md-5"><label id="sexTip" class=" hide control-default">请选择你的性别.</label></div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="birth">出生日期:</label>
+                <div class="col-md-5">
+                    <input id="birth" type="date" name="birth" class="form-control" placeholder="请输入出生日期">
+                </div>
+                <div class="col-md-5"><label id="birthTip" class=" hide control-default">请选择你的出生日期.</label></div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="email">电子邮件:</label>
+                <div class="col-md-5">
+                    <input id="email" type="email" name="email" class="form-control" placeholder="请输入电子邮件" required>
+                </div>
+                <div class="col-md-5"><label id="emailTip" class="hide control-default">请输入你的电子邮件地址.</label></div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="tel">手机号:</label>
+                <div class="col-md-5">
+                    <input id="tel" type="tel" name="tel" class="form-control" placeholder="请输入手机号" pattern="^[1][0-9]{10}$" />
+                </div>
+                <div class="col-md-5"><label id="telTip" class="hide control-default">请输入你的手机号.</label></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5 col-md-push-2">
+                    <input type="submit" value="注册" class="btn btn-success btn-block">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script>
+        //获得 用户 input元素
+        var username = document.getElementById("username");
+        var usernameTip = document.getElementById("usernameTip");
+        username.onfocus = function(){
+            usernameTip.className = "col-md-5 show control-default";
+            usernameTip.firstChild.nodeValue = "请输入8至16位的英文或数字."
+        };
+
+        username.onblur = function(){
+            if(username.validity.valid) {
+                //查询数据库，检查用户名是否被占用。
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState === 4){
+                        if(xhr.status === 200){
+                            //处理响应数据
+                            if(xhr.responseText=="exist"){
+                                usernameTip.className = "col-md-5 show control-error";
+                                usernameTip.firstChild.nodeValue = "用户名已经存在。";
+                            }else if(xhr.responseText=="none"){
+                                usernameTip.className = "col-md-5 show control-success";
+                                usernameTip.firstChild.nodeValue = "用户名可用。";
+                            }
+                        }
+                    }
+                };
+                xhr.open("GET","php/runton_register_valid.php?username="+username.value,true);
+                xhr.send(null);
+            }else if(username.validity.valueMissing){
+                usernameTip.className = "col-md-5 show control-error";
+                usernameTip.firstChild.nodeValue = "用户名不能为空."
+            }else if(username.validity.patternMismatch){
+                usernameTip.className = "col-md-5 show control-error";
+                usernameTip.firstChild.nodeValue = "用户名输入有误."
+            }
+        }
+        //用户密码验证
+        var password = document.getElementById("password");
+        var passwordTip = document.getElementById("passwordTip");
+        password.onfocus = function(){
+            passwordTip.className = "col-md-5 show control-default";
+            passwordTip.firstChild.nodeValue = "请输入6至12位的数字和字母混合组成的密码."
+        }
+        password.onblur = function(){
+            if(password.validity.valid){
+                passwordTip.className = "col-md-5 show control-success";
+                passwordTip.firstChild.nodeValue = "密码正确."
+            }else if(password.validity.valueMissing){
+                passwordTip.className = "col-md-5 show control-error";
+                passwordTip.firstChild.nodeValue = "密码不能为空."
+            }else if(password.validity.patternMismatch){
+                passwordTip.className = "col-md-5 show control-error";
+                passwordTip.firstChild.nodeValue = "密码输入有误."
+            }
+        }
+
+        //用户出生日期验证
+        var birth = document.getElementById("birth");
+        var birthTip = document.getElementById("birthTip");
+        birth.onfocus = function(){
+            birthTip.className = "col-md-5 show control-default";
+            birthTip.firstChild.nodeValue = "请选择你的出生日期."
+        }
+        birth.onblur = function(){
+            birthTip.className = "col-md-5 hide";
+        }
+        //用户邮箱验证
+        var email = document.getElementById("email");
+        var emailTip = document.getElementById("emailTip");
+        email.onfocus = function(){
+            emailTip.className = "col-md-5 show control-default";
+            emailTip.firstChild.nodeValue = "请输入你的电子邮件地址."
+        }
+        email.onblur = function(){
+            if(email.validity.valid){
+                emailTip.className = "col-md-5 show control-success";
+                emailTip.firstChild.nodeValue = "电子邮件正确."
+            }else if(email.validity.valueMissing){
+                emailTip.className = "col-md-5 show control-error";
+                emailTip.firstChild.nodeValue = "电子邮件不能为空."
+            }else if(email.validity.typeMismatch){
+                emailTip.className = "col-md-5 show control-error";
+                emailTip.firstChild.nodeValue = "电子邮件输入有误."
+            }
+        }
+        //用户手机号码验证
+
+        var tel = document.getElementById("tel");
+        var telTip = document.getElementById("telTip");
+        tel.onfocus = function(){
+            telTip.className = "col-md-5 show control-default";
+            telTip.firstChild.nodeValue = "请输入你的手机号码."
+        }
+        tel.onblur = function(){
+            if(tel.validity.valid){
+                telTip.className = "col-md-5 show control-success";
+                telTip.firstChild.nodeValue = "号码正确."
+            }else if(tel.validity.patternMismatch){
+                telTip.className = "col-md-5 show control-error";
+                telTip.firstChild.nodeValue = "号码不正确."
+            }
+        }
+        //TODO 表单提交处理
+        $("#regForm").submit(function(event){
+            event.preventDefault();
+            //向服务器提交用户注册信息
+            var regData= $(this).serialize();
+            $.post("php/runton_add_user.php",regData,function(data){
+                if(data=="succ"){
+                    alert("用户注册成功");
+                }else{
+                    alert("用户注册失败");
+                }
+            });
+        });
+    </script>
+    <script src="js/common.min.js"></script>
+</body>
+</html>

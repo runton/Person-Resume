@@ -1,0 +1,37 @@
+
+    <nav class="navbar navbar-color navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#manu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand head_logo_div">
+                    <img class="logo_img" src="images/upload/head03.jpg"></a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="manu">
+                <ul id="nav_ul" class="nav navbar-nav navbar-right">
+                    <li class="nav_li_on nav_ul_li" ng-click="jump('/main')">首页</li>
+                    <li class="nav_ul_li" ng-click="jump('/skills')">技能</li>
+                    <li class="nav_ul_li" ng-click="jump('/works')">作品</li>
+                    <li class="nav_ul_li" ng-click="jump('/interest')">爱好</li>
+                    <li class="nav_ul_li" ng-click="jump('/contact')">联系我</li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation_box">
+            <ul>
+                <li class="home" ng-click="jump('/main')"></li>
+                <li class="skills" ng-click="jump('/skills')"></li>
+                <li class="works"  ng-click="jump('/works')"></li>
+                <li class="interest"  ng-click="jump('/interest')"></li>
+                <li class="contact"  ng-click="jump('/contact')"></li>
+            </ul>
+        </div>
+    </nav>
+
